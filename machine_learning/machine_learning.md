@@ -1,5 +1,17 @@
 ## Uczenie maszynowe
 
+### Język programowania oraz biblioteki
+Język programowania: Python 3.9
+
+Biblioteki:
+* matplotlib
+* cv2
+* tabulate
+* numpy
+* sklearn
+* imblearn
+* sklearnex
+
 Na początku wczytujemy dane niezbędne do trenowania modelu. Składają się na nie pięć obrazów, z których ekstrahujemy cechy, oraz odpowiadające im maski eksperckie.
 
 Obszar dna oka, który nas interesuje, znajduje się w centrum obrazu. Fragmenty poza polem widzenia nie dostarczają nam żadnych istotnych informacji. Z tego względu stworzyliśmy funkcję, która przetwarza obraz jedynie w obrębie okręgu wpisanego w obraz. Proces przetwarzania odbywa się ramka po ramce, z oknem przesuwanym o 1 piksel.
