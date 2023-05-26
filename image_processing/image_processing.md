@@ -1,5 +1,16 @@
 ## Przetwarzanie obrazów
 
+### Język programowania oraz biblioteki
+Język programowania: Python 3.9
+
+Biblioteki:
+* matplotlib
+* cv2
+* tabulate
+* numpy
+* sklearn
+* skimage
+
 Na początku dokładnie przeanalizowaliśmy obraz, biorąc pod uwagę składowe różnych kolorów oraz reprezentację w odcieniach szarości. Zauważyliśmy, że najwięcej przydatnych informacji do detekcji naczyń krwionośnych znajduje się w składowej koloru zielonego. W związku z tym, w kolejnych etapach przetwarzania, postanowiliśmy opierać się na tej składowej.
 
 ![Original image](./original_image.png)
