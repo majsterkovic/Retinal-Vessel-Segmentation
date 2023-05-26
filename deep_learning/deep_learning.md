@@ -17,9 +17,11 @@ Na początku wczytujemy dane niezbędne do trenowania modelu. Składają się na
 
 Zbiór jest dzielony na zbiór treningowy i walidacyjny.
 
-Model, który został wykorzystany, to sieć U-net z biblioteki segmentation-models. Obrazy wejściowe mają rozmiar 512x512 pikseli i trzy warstwy. 
+Model, który został wykorzystany, to sieć U-net z biblioteki segmentation_models. Jest on zdefiniowany używając architektury VGG16 jako podstawy. Model przyjmuje obrazy o kształcie (512, 512, 3) i ma na wyjściu jedną klasę. Aktywacja sigmoidalna jest stosowana na ostatniej warstwie modelu.
 
-Przed treningiem zbiór treningowy jest dzielony na trzy sekcje za pomocą funkcji KFold, aby przeprowadzić walidację krzyżową. Obrane przez nas parametry przy treningu to wielkość batcha 10, 2 epoki oraz optymalizator Adam. W trakcie treningu zapisywany jest najlepszy model.
+Model jest kompilowany z optymalizatorem Adam, który ma współczynnik nauki ustawiony na 1e-4. Jako funkcję straty używana jest bce_jaccard_loss z biblioteki segmentation_models, która łączy stratę binary cross-entropy (bce) z indeksem Jaccarda. Jako metrykę oceny modelu używana jest iou_score, również z biblioteki segmentation_models.
+
+Przed treningiem zbiór treningowy jest dzielony na trzy sekcje za pomocą funkcji KFold, aby przeprowadzić walidację krzyżową. Obrane przez nas parametry przy treningu to wielkość batcha 10, 2 epoki. W trakcie treningu zapisywany jest najlepszy model.
 
 ![Predictions](./prediction.png)
 
